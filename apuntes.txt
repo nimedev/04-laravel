@@ -15,6 +15,6 @@ permite que solo se suban al repositorio lo necesario.
 
 -recuerde configurar para que muestre los errores laravel:
 	app/config/app.php
- buscar 'debug' => true
+  buscar 'debug' => true
 
 -Primero incluir jquery antes que bootstrap
