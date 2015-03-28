@@ -1,0 +1,20 @@
+- Instalamos Smarty.
+- lo buscamos en packagist. y buscamos "smarty laravel 4"
+- señalamos el mas usado: dark/smarty-view.
+- lo señalamos por canonical y buscamos la explicación de como se instala
+  generalmente se hace por composer.
+- en Netbeans se le da clic derecho sobre el proyecto, señala composer
+  y luego update (dev).
+  Por consola se busca la ruta del proyecto y se teclea:
+	composer update
+
+NOTA!!!
+en el archivo composer.json está la información que se debe cargar. por
+ejemplo la famosa carpeta vendor. por esto esta en el .gitignore. esto
+permite que solo se suban al repositorio lo necesario.
+
+-recuerde configurar para que muestre los errores laravel:
+	app/config/app.php
+ buscar 'debug' => true
+
+-Primero incluir jquery antes que bootstrap
