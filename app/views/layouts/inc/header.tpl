@@ -47,7 +47,7 @@
                         <li><a href="#">Something else here</a></li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#">
+                            <a href="{url('/logout')}">
                                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                                 Salir
                             </a>

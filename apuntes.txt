@@ -18,3 +18,20 @@ permite que solo se suban al repositorio lo necesario.
   buscar 'debug' => true
 
 -Primero incluir jquery antes que bootstrap
+
+*************************************************************
+
+MIGRACION:
+php artisan migrate:make add_votes_to_user_table --table=users
+
+ ej: php artisan migrate:make create_table_usuario --table=usuario
+
+Puede usar el programa navicat para administrar la base de datos.
+muy recomendado.
+
+OJO: algunos comentarios de java script pueden generar conflicto con la
+sintaxis de laravel. por ejemplo {boolean}
+
+AUTENTICACION:
+Para autenticar es importante cambiar el archivo app/config/auth.php:
+ - 'driver' y 'table'

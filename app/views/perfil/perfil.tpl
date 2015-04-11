@@ -1,4 +1,5 @@
 {capture assign="left"}
+    {Auth::check()}
     <center><img src="http://www.sporthotel-kuehtai.com/uploads/pics/mountainbike_sonnenuntergan_57.jpg"
          width="250" height="167"/></center>
     <div class="well">
