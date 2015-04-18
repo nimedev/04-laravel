@@ -35,3 +35,10 @@ sintaxis de laravel. por ejemplo {boolean}
 AUTENTICACION:
 Para autenticar es importante cambiar el archivo app/config/auth.php:
  - 'driver' y 'table'
+
+*************************************************************
+Elquent:
+
+Pagina: http://www.google.com/fonts.
+
+OJO: cuando se usa url() en laravel debe ir entr {} para indicar que es un comando de laravel.
