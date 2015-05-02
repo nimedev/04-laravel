@@ -30,14 +30,16 @@
         </div>
         <div>
             <span class="glyphicon glyphicon-comment"></span> 
-            <span id="comentar">Comentar</span> |
+            <span onclick="c.comentar({$publicacion->id})">Comentar</span> |
             <span class="glyphicon glyphicon-thumbs-up"></span> Me gusta
-            <div id="comentarios-{$publicacion->id}}">
-                
+            <div id="comentarios-{$publicacion->id}">
+
             </div>
             <br>
-            <textarea id="comentario-{$publicacion->id}}" rows="1" placeholder="Escribe tu comentario..."></textarea>
-            <button id="cm" class="btn btn-success btn-sm" onclick="fb.comentar({$publicacion->id})">Comentar</button>
+            <div id="comentario-grp-{$publicacion->id}" style="display: none;">
+                <textarea id="comentario-{$publicacion->id}" rows="1" placeholder="Escribe tu comentario..."></textarea>
+                <button id="cm" class="btn btn-success btn-sm" onclick="fb.comentar({$publicacion->id})">Comentar</button>
+            </div>
         </div>
         <hr>
     {foreachelse}
