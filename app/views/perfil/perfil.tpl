@@ -1,9 +1,10 @@
 {capture assign="left"}
     {Auth::check()}
-    <center><img src="http://www.sporthotel-kuehtai.com/uploads/pics/mountainbike_sonnenuntergan_57.jpg"
+    <center><img src="{url('assets/img/profile/')}/{$pic}"
                  width="250" height="167"/></center>
     <div class="well">
-        Información
+        <p>{Auth::user()->nombre}</p>
+        <p>{Auth::user()->correo}</p>
     </div>
 {/capture}
 {capture assign="right"}

@@ -19,14 +19,6 @@ Route::get('/', function() {
     }
 });
 
-Route::get('/profile', ['before' => ['auth'], function() {
-
-$publicaciones = Publicaciones::orderBy('id','desc')->get();
-return View::make('perfil.perfil')
-                ->with('nombre', Auth::user()->nombre)
-                ->with('publicaciones', $publicaciones);
-}]);
-
 Route::post('/loguear', function() {
     $email = Input::get('email');
     $password = Input::get('password');
@@ -37,9 +29,7 @@ Route::post('/loguear', function() {
     }
 });
 
-Route::get('/logout', function() {
-    Auth::logout();
-    return Redirect::to("/");
+Route:: group(array('before' => 'auth'), function () {
+    Route::controller('publicacion', 'PublicacionController');
+    Route::controller('profile', 'ProfileController');
 });
-
-Route::controller('publicacion', 'PublicacionController');

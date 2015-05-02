@@ -18,7 +18,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Buscar personas">
+                    <input id="searchPeople" type="text" class="form-control" 
+                           placeholder="Buscar personas" data-provide="typeahead"
+                           data-source='{$friends}' autocomplete="off" 
+                           spellcheck="false">
                 </div>
             </form>
             <ul class="nav navbar-nav navbar-right">
@@ -47,7 +50,7 @@
                         <li><a href="#">Something else here</a></li>
                         <li class="divider"></li>
                         <li>
-                            <a href="{url('/logout')}">
+                            <a href="{url('/profile/logout')}">
                                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                                 Salir
                             </a>

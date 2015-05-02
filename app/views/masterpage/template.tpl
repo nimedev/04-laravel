@@ -8,12 +8,12 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" href="./assets/img/icono.png">
-        
+
         <title>Facebook</title>
-        
+
         {*<!-- Bootstrap core CSS -->*}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        
+
         <!-- Google Font -->
         <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
     </head>
@@ -22,7 +22,7 @@
             {capture assign="layouts"}../layouts/{$layout}.tpl{/capture}
             {include file=$layouts}
         </div>
-        
+
         <!-- SCRIPTS
         ================================================== -->
         {*<!-- jQuery -->*}
@@ -33,6 +33,7 @@
         {*<script src="Carousel%20Template%20for%20Bootstrap_files/ie10-viewport-bug-workaround.js"></script>*}
 
         {*<!-- Custom scripts -->*}
-        <script src="./assets/js/app.js"></script>
+        {HTML::script('assets/js/app.js')}
+        {HTML::script('assets/libs/typeahead/bootstrap3-typeahead.min.js')}
     </body>
 </html>

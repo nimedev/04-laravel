@@ -25,5 +25,5 @@ class publicacionController extends BaseController {
         }
         return Redirect::to('profile');
     }
-
+    
 }

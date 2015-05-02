@@ -7,4 +7,5 @@ class Publicaciones extends Eloquent {
     public function freshTimestamp() {
         return date('Y-m-d h:i:s');
     }
+
 }
