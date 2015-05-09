@@ -26,6 +26,8 @@ class CreateTableUsuario extends Migration {
             $table->binary('tipo');
             $table->integer('usuario')->unsigned();
             $table->foreign('usuario')->references('id')->on('usuarios');
+            $table->integer('receptor')->unsigned();
+            $table->foreign('receptor')->references('id')->on('usuarios');
             $table->integer('padre')->unsigned()->nullable();
             $table->foreign('padre')->references('id')->on('publicaciones');
             $table->timestamps();
@@ -67,6 +69,12 @@ class CreateTableUsuario extends Migration {
         DB::table('usuarios')->insert([
             'nombre' => 'Pilar',
             'correo' => 'pilar@mail.com',
+            'password' => Hash::make('123')
+        ]);
+        
+        DB::table('usuarios')->insert([
+            'nombre' => 'Sofi',
+            'correo' => 'sofia@mail.com',
             'password' => Hash::make('123')
         ]);
     }

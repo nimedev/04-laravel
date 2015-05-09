@@ -12,20 +12,24 @@ class ProfileController extends BaseController {
         //$friends = DB::table('usuarios')
         //        ->where('id', '<>', Auth::user()->id)
         //        ->get();
+        // Comentarios por id
+        $publicaciones = Usuarios::find(Auth::user()->id)->myComments();
+        $listOfFriends = Usuarios::find(Auth::user()->id)->myFriends();
+
         // Hace la cadena de caracteres para el data-source
         $s = "";
-        foreach ($friends as $friend) {
+        foreach ($listOfFriends as $friend) {
             $s.=",\"{$friend->nombre}\"";
         }
         $s = trim($s, ',');
         $s = "[$s]";
-        // Comentarios por id
-        $publicaciones = Usuarios::find(Auth::user()->id)->myComments();
         return View::make('perfil.perfil')
                         ->with('nombre', Auth::user()->nombre)
                         ->with('pic', Auth::user()->id . ".jpg")
                         ->with('publicaciones', $publicaciones)
-                        ->with('friends', $s);
+                        ->with('friends', $s)
+                        ->with('amigos', $listOfFriends)
+                        ->with('uobj', Auth::user());
     }
 
     // Load other profile
@@ -37,11 +41,22 @@ class ProfileController extends BaseController {
         $usuario = Usuarios::find($id);
         if ($usuario) {
             $publicaciones = $usuario->myComments();
+            $listOfFriends = $usuario->myFriends();
+
+            // Hace la cadena de caracteres para el data-source
+            $s = "";
+            foreach ($listOfFriends as $friend) {
+                $s.=",\"{$friend->nombre}\"";
+            }
+            $s = trim($s, ',');
+            $s = "[$s]";
             return View::make('perfil.perfil')
                             ->with('nombre', $usuario->nombre)
                             ->with('pic', $usuario->id . ".jpg")
-                            ->with('publicaciones', $publicaciones);
-//                        ->with('friends', $s);
+                            ->with('publicaciones', $publicaciones)
+                            ->with('friends', $s)
+                            ->with('amigos', $listOfFriends)
+                            ->with('uobj', $usuario);
         } else {
             return Redirect::to("/profile");
         }

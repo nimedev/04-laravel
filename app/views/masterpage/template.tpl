@@ -33,6 +33,9 @@
         {*<script src="Carousel%20Template%20for%20Bootstrap_files/ie10-viewport-bug-workaround.js"></script>*}
 
         {*<!-- Custom scripts -->*}
+        <script>
+            var baseUrl = "{url('/')}";
+        </script>
         {HTML::script('assets/js/app.js')}
         {HTML::script('assets/libs/typeahead/bootstrap3-typeahead.min.js')}
     </body>

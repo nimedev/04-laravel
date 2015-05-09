@@ -22,9 +22,22 @@ var fb = {
                 }
 //              ,  error: muestraError
             });
-
         } else {
             alert("empty!");
         }
+    },
+    meGusta: function (id) {
+        $.ajax({
+            url: baseUrl + '/publicacion/me-gusta',
+            type: 'POST',
+            async: true,
+            data: {
+                publicacion: id
+            },
+            success: function (response) {
+                console.log(response);
+            }
+//              ,  error: muestraError
+        });
     }
 };

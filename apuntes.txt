@@ -55,3 +55,7 @@ Usamos el bassjobsen/Bootstrap-3-Typeahead:
 https://github.com/bassjobsen/Bootstrap-3-Typeahead
 
 la idea es agregar la lista en el atributo data-source. data-source='["nombre1", "id2", "cosa3"]'
+***************************************************************
+Bug de smarty que se queda mostrando el error:
+buscar en:
+app/storage/views/compile y arreglar el archivo que esta malo.

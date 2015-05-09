@@ -7,5 +7,8 @@ class Publicaciones extends Eloquent {
     public function freshTimestamp() {
         return date('Y-m-d h:i:s');
     }
-
+    
+    public function likes() {
+        return MeGusta::likes($this->id);
+    }
 }

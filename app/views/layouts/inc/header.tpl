@@ -8,9 +8,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
-                <img src="http://images.clipartpanda.com/fox-head-outline-aTqe58RXc.png"
-                     width="100" height="40"/>
+            <a class="navbar-brand" href="#" style="padding: 5px 10px">
+                <img src="{url('assets/img/logo.png')}"
+                     style="witdh: 100%; height: 40px"/>
             </a>
         </div>
 
@@ -27,10 +27,12 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="#">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        {$nombre}
+{*                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>*}
+                        <img src="{url('assets/img/profile/')}/{Auth::user()->id}.jpg"
+                             class="img-responsive"
+                             style="max-height: 30px; display: inline;"/>
+                        {Auth::user()->nombre}
                     </a>
-
                 </li>
                 <li>
                     <a href="#">
