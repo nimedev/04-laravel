@@ -14,7 +14,7 @@ var fb = {
                 type: 'POST',
                 async: true,
                 data: {
-                    usuario: 1,
+                    usuario: id,
                     comentario: comentario.val()
                 },
                 success: function (response) {
@@ -35,7 +35,8 @@ var fb = {
                 publicacion: id
             },
             success: function (response) {
-                console.log(response);
+                var likes= $("#likes-" + id);
+                likes.text(response.nlikes);
             }
 //              ,  error: muestraError
         });
