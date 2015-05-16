@@ -8,4 +8,16 @@ class MeGusta extends Eloquent {
         return MeGusta::where('publicacion', $id)->count();
     }
 
+    public static function likeByIds($uid, $pid) {
+        return MeGusta::where('usuario', $uid)
+                        ->where('publicacion', $pid)
+                        ->count();
+    }
+
+    public static function deleteByIds($uid, $pid) {
+        MeGusta::where('usuario', $uid)
+                ->where('publicacion', $pid)
+                ->delete();
+    }
+
 }

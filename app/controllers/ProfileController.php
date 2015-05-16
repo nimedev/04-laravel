@@ -15,7 +15,6 @@ class ProfileController extends BaseController {
         // Comentarios por id
         $publicaciones = Usuarios::find(Auth::user()->id)->myComments();
         $listOfFriends = Usuarios::find(Auth::user()->id)->myFriends();
-
         // Hace la cadena de caracteres para el data-source
         $s = "";
         foreach ($listOfFriends as $friend) {
@@ -42,7 +41,6 @@ class ProfileController extends BaseController {
         if ($usuario) {
             $publicaciones = $usuario->myComments();
             $listOfFriends = $usuario->myFriends();
-
             // Hace la cadena de caracteres para el data-source
             $s = "";
             foreach ($listOfFriends as $friend) {

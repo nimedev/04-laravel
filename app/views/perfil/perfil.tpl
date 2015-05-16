@@ -61,18 +61,35 @@
             {$publicacion->publicacion}
         </div>
         <div>
-            <span class="glyphicon glyphicon-comment"></span> 
-            <span onclick="c.comentar({$publicacion->id})">Comentar</span> |
-            <span class="glyphicon glyphicon-thumbs-up"
-                  onclick="fb.meGusta({$publicacion->id})"></span> Me gusta
+            <span onclick="c.comentar({$publicacion->id})"
+                  style="cursor: pointer;">
+                <span class="glyphicon glyphicon-comment"></span> 
+                Comentar
+            </span> |
+            <span onclick="fb.meGusta({$publicacion->id})"
+                  style="cursor: pointer;">
+                <span class="glyphicon glyphicon-thumbs-up"></span>
+                <span id="like-text-{$publicacion->id}">
+                    {$publicacion->likeTo(Auth::user()->id)}
+                </span>
+            </span> 
+            | a
             <span id="likes-{$publicacion->id}">{$publicacion->likes()}</span>
-            <div id="comentarios-{$publicacion->id}">
-
+            personas les gusta esto
+            <div id="comentarios-{$publicacion->id}" class="comentarios">
+                {foreach $publicacion->getComments() as $comment}
+                    <div class="well">
+                        <img src="{url('assets/img/profile/')}/{$comment->usuario}.jpg"
+                             class="img-responsive"/>
+                        {$comment->publicacion}
+                    </div>
+                {/foreach}
             </div>
             <br>
             <div id="comentario-grp-{$publicacion->id}" style="display: none;">
                 <textarea id="comentario-{$publicacion->id}" rows="1" 
-                          placeholder="Escribe tu comentario..."></textarea>
+                          placeholder="Escribe tu comentario..."
+                          style="width: 300px;"></textarea>
                 <button id="cm" class="btn btn-success btn-sm" 
                         onclick="fb.comentar({$publicacion->id});">
                     Comentar

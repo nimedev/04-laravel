@@ -14,6 +14,9 @@
         {*<!-- Bootstrap core CSS -->*}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
+        <!-- My styles -->
+        {HTML::style('assets/css/style.css')}
+        
         <!-- Google Font -->
         <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
     </head>

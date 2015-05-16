@@ -10,20 +10,24 @@ var fb = {
         var comentario = $("#comentario-" + id);
         if (comentario.val()) {
             $.ajax({
-                url: 'publicacion/comentar',
+                url: baseUrl + '/publicacion/comentar',
                 type: 'POST',
                 async: true,
                 data: {
-                    usuario: id,
-                    comentario: comentario.val()
+                    comentario: comentario.val(),
+                    padre: id
                 },
                 success: function (response) {
-                    alert("se ejecutó correctamente");
+                    var img = "<img src='"+baseUrl+"/assets/img/profile/"+response.usuario+".jpg'"
+                             +" class='img-responsive'/> ";
+                     console.log(img);
+                    $("#comentarios-"+id).append("<div class='well'>"+img+response.comment+"</div>");
+                    comentario.val("");
                 }
 //              ,  error: muestraError
             });
         } else {
-            alert("empty!");
+            alert("Este campo es obligatorio!");
         }
     },
     meGusta: function (id) {
@@ -35,8 +39,10 @@ var fb = {
                 publicacion: id
             },
             success: function (response) {
-                var likes= $("#likes-" + id);
+                var likes = $("#likes-" + id),
+                        like = $("#like-text-" + id);
                 likes.text(response.nlikes);
+                like.text(response.like?"Me Gusta" : "Ya NO me Gusta");
             }
 //              ,  error: muestraError
         });
